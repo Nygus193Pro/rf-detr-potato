@@ -1,8 +1,8 @@
-AI Video Inference Demo
+RF-DETR POTATO — AI VIDEO INFERENCE (PYTORCH + OPENVINO)
 
-Prosty projekt do uruchamiania inferencji wideo w PyTorch.
+Prosty projekt do detekcji/śledzenia ziemniaków w wideo. Działa na CPU lub GPU (CUDA).
 
-Wymagania
+WYMAGANIA
 
 Python 3.10+
 
@@ -10,41 +10,47 @@ pip + virtualenv
 
 FFmpeg (zalecany)
 
-Instalacja
+INSTALACJA (Windows, PowerShell)
+
+Sklonuj repo i wejdź do folderu:
 git clone https://github.com/Nygus193Pro/rf-detr-potato.git
+
 cd rf-detr-potato
+
+Utwórz i aktywuj wirtualne środowisko:
 python -m venv .venv
-.venv\Scripts\activate     # Windows
-# lub
-source .venv/bin/activate  # Linux/macOS
+..venv\Scripts\Activate.ps1
+pip install --upgrade pip
 
-PyTorch
-
-CPU (zalecane):
-
+Zainstaluj PyTorch:
+CPU (działa u każdego):
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 
-
-GPU (CUDA 12.x):
-
+GPU (NVIDIA + CUDA 12.x):
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
 
-Reszta pakietów
+Zainstaluj pozostałe pakiety:
 pip install -r requirements.txt
 
-Uruchomienie
+URUCHOMIENIE
+CPU:
 python infer_video_pytorch.py --input demo.mp4 --output demo_results_simple --device cpu
+GPU:
+python infer_video_pytorch.py --input demo.mp4 --output demo_results_simple --device cuda
 
+STRUKTURA
+infer_video_pytorch.py
+export_to_onnx.py
+requirements.txt
+demo.mp4
+demo_results_simple/
+README.md
 
-GPU: --device cuda
+UWAGI
 
-Struktura
-├── infer_video_pytorch.py
-├── requirements.txt
-├── demo.mp4
-├── demo_results_simple/
-└── README.md
+demo.mp4 jest w repozytorium.
 
-Licencja
+Wyniki i modele (demo_results_simple/, output_model/, *.pt, *.onnx, *.xml, *.bin) są ignorowane w .gitignore.
 
+LICENCJA
 MIT
