@@ -1,73 +1,50 @@
-# AI Video Inference Demo
+AI Video Inference Demo
 
-Prosty projekt do uruchamiania inferencji wideo na modelu PyTorch.
+Prosty projekt do uruchamiania inferencji wideo w PyTorch.
 
----
+Wymagania
 
-## 🔧 Wymagania
+Python 3.10+
 
-* Python 3.10+
-* pip + virtualenv
-* PyTorch (CPU lub CUDA)
-* FFmpeg (zalecany)
+pip + virtualenv
 
----
+FFmpeg (zalecany)
 
-## 🚀 Szybki start
-
-### 1️⃣ Klonowanie repo
-
-```bash
-git clone https://github.com/<twoj-nick>/<nazwa-projektu>.git
-cd <nazwa-projektu>
-```
-
-### 2️⃣ Tworzenie środowiska
-
-```bash
+Instalacja
+git clone https://github.com/Nygus193Pro/rf-detr-potato.git
+cd rf-detr-potato
 python -m venv .venv
-.venv\Scripts\activate    # Windows
+.venv\Scripts\activate     # Windows
 # lub
 source .venv/bin/activate  # Linux/macOS
-```
 
-### 3️⃣ Instalacja zależności
+PyTorch
 
-```bash
+CPU (zalecane):
+
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+
+GPU (CUDA 12.x):
+
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+
+Reszta pakietów
 pip install -r requirements.txt
-```
 
-### 4️⃣ Uruchom demo
-
-```bash
+Uruchomienie
 python infer_video_pytorch.py --input demo.mp4 --output demo_results_simple --device cpu
-```
 
-> Dla GPU: zamień `--device cpu` na `--device cuda`
 
----
+GPU: --device cuda
 
-## 📁 Struktura projektu
-
-```
+Struktura
 ├── infer_video_pytorch.py
-├── export_to_onnx.py
 ├── requirements.txt
 ├── demo.mp4
-├── demo_results_simple/ (wyniki – ignorowane w git)
-├── .gitignore
+├── demo_results_simple/
 └── README.md
-```
 
----
+Licencja
 
-## 🧠 Uwagi
-
-* `demo.mp4` jest w repozytorium.
-* Wyniki i modele są ignorowane (`demo_results_simple/`, `output_model/`, `*.pt`, `*.onnx`, ...).
-
----
-
-## 📜 Licencja
-
-MIT 
+MIT
